@@ -8,4 +8,12 @@ What type of operations we usually perform on Server Side ?
 - Accessing Message Queues
 - Making API requests to other server
 
+## Basics
+parent object:
+in browser DOM - we have window object which is parent.
+In node environment - process is the root object
+Node never sleeps:
+Node never sleep or idle - event loop executes and assigns to c++ job threads
+
+
 
