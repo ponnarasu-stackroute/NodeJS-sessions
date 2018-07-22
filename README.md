@@ -14,8 +14,24 @@ in browser DOM - we have window object which is parent.
 In node environment - process is the root object
 - Node never sleeps:
 Node never sleep or idle - event loop executes and assigns to c++ job threads
+compare to java middle ware - 30% less code lines,20% improved performance in IO operations, optimized cpu resource. 
 ### ryan dhal creater of node session - must see 
 https://www.youtube.com/watch?v=jo_B4LTHi3I 
+functional programming, async programing by event loops/ callback fns, for IO extensive applications.
+express js framework for web ie routing resources.
+he explains core module http createserver, raw create tcpsockets, then sockets event listener on , sockets emitters, debugger, npm package manager, call backs always to avoid blocking since single threaded - it is actually optimized the resources.  
 
-
+### week1:
+modules  - like packages in java. there are different modularity in js community like amd, commonjs ecma6 modules,etc. node js uses commonjs modules(require)
+types - core, third party
+module node docs - https://nodejs.org/api/modules.html
+lodash - famous lib for collection handling.
+we can use yarn also instead of npm install
+```
+> npm install yarn -g
+> yarn
+> npm install // we can use any yarn or npm for package json dependencies 
+```
+mocha - testing framework/ chai- assertion frame
+>node_modules/mocha/bin/mocha add.spec.js // to run
 
