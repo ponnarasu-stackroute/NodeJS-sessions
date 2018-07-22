@@ -14,6 +14,8 @@ in browser DOM - we have window object which is parent.
 In node environment - process is the root object
 - Node never sleeps:
 Node never sleep or idle - event loop executes and assigns to c++ job threads
+### ryan dhal creater of node session - must see 
+https://www.youtube.com/watch?v=jo_B4LTHi3I 
 
 
 
