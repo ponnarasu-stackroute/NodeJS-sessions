@@ -36,4 +36,10 @@ we can use yarn also instead of npm install
 mocha - testing framework/ chai- assertion frame
 >node_modules/mocha/bin/mocha add.spec.js // to run test
 
+### week 2 Architecture of NodeJS
+![Alt text](./pics/node-architecture.JPG "JS+some libraries")
+C10M Problem - server to handle concurrent 10 million requests in reasonable time (in milliseconds)
+
+How Node JS achieved the high performance eventhough it is single threaded?
+
 
