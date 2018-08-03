@@ -59,7 +59,10 @@ typeof Math // "object"  (1)Math is a built-in object that provides mathematical
 typeof null // "object"  (2) The result of typeof null is "object". That’s wrong. It is an officially recognized error in typeof, kept for compatibility.
 typeof alert // "function"  (3)
 
-
+//strict equality
+A strict equality operator === checks the equality without type conversion.
+alert( 0 === false ); // false, because the types are different
+alert( '' == false ); // true
 ```
 
 ### objects
@@ -99,4 +102,111 @@ for(let key in user) {*******************
   // values for the keys
   alert( user[key] ); // John, 30, true
 }
+```
+### Functions
+recommended that A function should do exactly what is suggested by its name, no more.
+function names -the jQuery framework defines a function $. The LoDash library has its core function named _.
+
+```
+//two ways of creating functions
+1.Function Declaration
+function showMessage() {
+  let message = "Hello, I'm JavaScript!"; // local variable
+
+  alert( message );
+}
+
+// empty return- If a function does not return a value, it is the same as if it returns undefined
+A function with an empty return or without it returns undefined
+function doNothing() {
+  return;
+}
+alert( doNothing() === undefined ); // true
+
+//In JavaScript, a function is a value, so we can deal with it as a value. So we can work with it like with other kinds of values.
+2. Function Expression // note there is semi-colon at the end
+let sayHi = function() {
+  alert( "Hello" );
+};
+let func = sayHi;    //  copy the fn. think fn as other values
+
+```
+### call back functions
+refer: https://javascript.info/function-expressions-arrows
+passing functions as values and using function expressions called callbacks actually.
+```
+eg1:
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+function showOk() {
+  alert( "You agreed." );
+}
+function showCancel() {
+  alert( "You canceled the execution." );
+}
+// usage: functions showOk, showCancel are passed as arguments to ask
+ask("Do you agree?", showOk, showCancel);
+In our case, showOk becomes the callback for the “yes” answer, and showCancel for the “no” answer.
+Regular values like strings or numbers represent the data.A function can be perceived as an action.
+
+eg2: shorter format of earlier code
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+ask(
+  "Do you agree?",
+  function() { alert("You agreed."); },
+  function() { alert("You canceled the execution."); }
+);
+
+eg3: causes error
+let age = 16; // take 16 as an example
+if (age < 18) {
+  welcome();               // \   (runs                           //  |
+  function welcome() {     //  |
+    alert("Hello!");       //  |  Function Declaration is available
+  }                        //  |  everywhere in the block where it's declared                         //  |
+  welcome();               // /   (runs)
+} else {
+  function welcome() {     //  for age = 16, this "welcome" is never created
+    alert("Greetings!");
+  }
+}
+// Here we're out of curly braces,
+// so we can not see Function Declarations made inside of them.
+welcome(); // Error: welcome is not defined
+
+Remedy:
+let age = prompt("What is your age?", 18);
+let welcome;
+if (age < 18) {
+  welcome = function() {
+    alert("Hello!");
+  };
+} else {
+  welcome = function() {
+    alert("Greetings!");
+  };
+}
+welcome(); // ok now
+
+remedy- simpler way:
+let age = prompt("What is your age?", 18);
+let welcome = (age < 18) ?
+  function() { alert("Hello!"); } :
+  function() { alert("Greetings!"); };
+welcome(); // ok now
+
+3. ARROW FUNCTIONS:
+The arrow function is a shorter form of functional expressions
+JavaScript is full of situations where we need to write a small function, that’s executed somewhere else.
+eg:
+arr.forEach(func) – func is executed by forEach for every array item.
+setTimeout(func) – func is executed by the built-in scheduler.
+As we remember from the chapter Object methods, "this", arrow functions do not have this. If this is accessed, it is taken from the outside.
+let sum = (a, b) =>{ a + b;};//curly brace is when multiline fn used
+
 ```
