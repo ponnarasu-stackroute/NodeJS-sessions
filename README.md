@@ -38,8 +38,11 @@ mocha - testing framework/ chai- assertion frame
 
 ### week 2 Architecture of NodeJS
 ![Alt text](./pics/node-architecture.JPG "JS+some libraries")
+![Alt text](./pics/node-architecture1.JPG "JS+some libraries")
 C10M Problem - server to handle concurrent 10 million requests in reasonable time (in milliseconds)
 
-How Node JS achieved the high performance eventhough it is single threaded?
 
+
+How Node JS achieved the high performance eventhough it is single threaded?
+V8 engine - it compiles the code 
 
