@@ -41,5 +41,6 @@ mocha - testing framework/ chai- assertion frame
 C10M Problem - server to handle concurrent 10 million requests in reasonable time (in milliseconds)
 
 How Node JS achieved the high performance eventhough it is single threaded?
-
+actually, js is basically interpreter line by line. But, now it is no longer merely interpreter. Now v8 engine compiles in 2 phases - 1. compiles fast to machine code but may not optimal but start executing- named as ignition compiler  2. same time another thread starts and converts optimized code which is later used by v8 engine- named as turbo-fan compiler in v8.
+libraries inside node js - 
 
